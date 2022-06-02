@@ -13,6 +13,7 @@ class ProgramTest {
     @Test
     void fourNumberSumTestCase1() {
         List<Integer[]> result = Program.fourNumberSum(new int[]{7, 6, 4, -1, 1, 2}, 16);
+        assertThat(result, hasSize(2));
         assertThat(result,
                 hasItems(new Integer[]{7, 6, 4, -1},
                         new Integer[]{7, 6, 1, 2}));
@@ -21,12 +22,14 @@ class ProgramTest {
     @Test
     void fourNumberSumTestCase2() {
         List<Integer[]> result = Program.fourNumberSum(new int[]{1, 2, 3, 4, 5, 6, 7}, 10);
+        assertThat(result, hasSize(1));
         assertThat(result, hasItem(new Integer[]{1, 2, 3, 4}));
     }
 
     @Test
     void fourNumberSumTestCase3() {
         List<Integer[]> result = Program.fourNumberSum(new int[]{5, -5, -2, 2, 3, -3}, 0);
+        assertThat(result, hasSize(3));
         assertThat(result,
                 hasItems(new Integer[]{5, -5, -2, 2},
                         new Integer[]{5, -5, 3, -3},
@@ -36,6 +39,7 @@ class ProgramTest {
     @Test
     void fourNumberSumTestCase4() {
         List<Integer[]> result = Program.fourNumberSum(new int[]{-2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 4);
+        assertThat(result, hasSize(4));
         assertThat(result,
                 hasItems(new Integer[]{-2, -1, 1, 6},
                         new Integer[]{-2, 1, 2, 3},
@@ -46,6 +50,7 @@ class ProgramTest {
     @Test
     void fourNumberSumTestCase5() {
         List<Integer[]> result = Program.fourNumberSum(new int[]{-1, 22, 18, 4, 7, 11, 2, -5, -3}, 30);
+        assertThat(result, hasSize(5));
         assertThat(result,
                 hasItems(new Integer[]{-1, 22, 7, 2},
                         new Integer[]{22, 4, 7, -3},
@@ -57,6 +62,7 @@ class ProgramTest {
     @Test
     void fourNumberSumTestCase6() {
         List<Integer[]> result = Program.fourNumberSum(new int[]{-10, -3, -5, 2, 15, -7, 28, -6, 12, 8, 11, 5}, 20);
+        assertThat(result, hasSize(7));
         assertThat(result,
                 hasItems(new Integer[]{-5, 2, 15, 8},
                         new Integer[]{-3, 2, -7, 28},
@@ -76,6 +82,7 @@ class ProgramTest {
     @Test
     void fourNumberSumTestCase8() {
         List<Integer[]> result = Program.fourNumberSum(new int[]{1, 2, 3, 4, 5, -5, 6, -6}, 5);
+        assertThat(result, hasSize(6));
         assertThat(result,
                 hasItems(new Integer[]{2, 3, 5, -5},
                         new Integer[]{1, 4, 5, -5},
@@ -83,5 +90,11 @@ class ProgramTest {
                         new Integer[]{1, 3, -5, 6},
                         new Integer[]{2, 3, 6, -6},
                         new Integer[]{1, 4, 6, -6}));
+    }
+
+    @Test
+    void fourNumberSumTestCaseEmptyArray() {
+        List<Integer[]> result = Program.fourNumberSum(new int[]{}, 100);
+        assertThat(result, hasSize(0));
     }
 }
